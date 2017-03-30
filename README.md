@@ -1,4 +1,11 @@
 # servers-list
+
+Aplikacja dostępna pod adresem:
+
+```
+https://servers-warek.herokuapp.com/servers
+```
+
 Start:
 
 ```
@@ -11,6 +18,7 @@ npm start
 ```
 
 Zadanie:
+
 Należy	stworzyć	aplikację	do	zarządzania	infrastrukturą serwerową	w	firmie.
 Wymagania:
 1. Główny	ekran	powinien	zawierać:
@@ -32,7 +40,7 @@ serwery	po	zaznaczeniu	go/ich	na	liście)
 zmiany	typu	serwera.	W	ogólności	zalecane	jest	żeby	to	był	ten	sam	ekran	w	różnych	trybach.
 4. Przejście	do	ekranu	dodawania	lub	modyfikacji	zmienia	adres	na	pasku	adresu	(np.
 http://host/servers/add i	http://host/servers/modify ).
-5. Z	ekranów	modyfikacji	i	dodawania	serwera	musi	być	możliwość	powrotu	do	ekranu	
+5. Z	ekranów	modyfikacji	i	dodawania	serwera	musi	być	możliwość	powrotu	do	ekranu
 głównego	za	pomocą	przycisków	„Zapisz”	(zapisuje	zmiany)	i	„Anuluj”	(ignoruje
 wprowadzone	modyfikacje).
 6. Aplikacja	musi	w	rozsądnym	zakresie	wspierać	różne	rozdzielczości	i	formaty	ekranów;
