@@ -1,0 +1,18 @@
+.ok{
+  color:lightseagreen;
+}
+.start{
+  color:lightgreen;
+}
+.error{
+  color:red;
+}
+.stop{
+  color:grey;
+}
+.overloaded{
+  color:orange;
+}
+.right{
+  float:right!important;
+}

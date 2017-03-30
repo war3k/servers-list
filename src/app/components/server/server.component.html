@@ -1,0 +1,30 @@
+<div class="card card-block" *ngIf="isDataAvailable">
+  <div>
+    <h1>Server:</h1>
+    <form #f="ngForm">
+      <div class="form-group row">
+        <label class="col-xs-2">Name</label>
+        <input class="col-xs-3" type="text" name="name" [(ngModel)]="server.name" #name="ngModel" required>
+      </div>
+      <div class="form-group row">
+        <label class="col-xs-2">IP</label>
+        <input class="col-xs-3" type="text" name="ip" [(ngModel)]="server.ip" #ip="ngModel" required pattern="^(?!0)(?!.*\.$)((1?\d?\d|25[0-5]|2[0-4]\d)(\.|$)){4}$">
+      </div>
+      <div class="form-group row">
+        <label class="col-xs-2">Type</label>
+        <select class="col-xs-3" [disabled]="server.id!=''" name="type" [(ngModel)]="server.type" #type="ngModel" required>
+          <option [value]="'Spark'" [selected]="server.type=='Spark'">Spark</option>
+          <option [value]="'Tomcat'" [selected]="server.type=='Tomcat'">Tomcat</option>
+          <option [value]="'Cassandra'" [selected]="server.type=='Cassandra'">Cassandra</option>
+          <option [value]="'Postgress'" [selected]="server.type=='Postgress'">Postgress</option>
+        </select>
+      </div>
+      <div class="col-xs-4 right">
+        <button *ngIf="server.id!=''" class="btn btn-danger" type="button" (click)=deleteServer()>Delete</button>
+        <button *ngIf="server.id!=''" class="btn btn-success" (click)="updateServer(f.value)">Save</button>
+        <button *ngIf="server.id==''" class="btn btn-success" (click)="addNewServer(f.value)">Add Server</button>
+        <button class="btn btn-default" [routerLink]="['/servers']">Back</button>
+      </div>
+    </form>
+  </div>
+</div>

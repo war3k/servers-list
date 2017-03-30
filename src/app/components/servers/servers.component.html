@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row card card-block">
+    <button class="btn btn-default right" [routerLink]="['/servers/new']">Add Server</button>
+  </div>
+  <div class="row" *ngFor="let server of servers">
+    <div class="card card-block">
+      <h2 class="card-title">{{ server.name }}</h2>
+      <div class="row">
+        <div class="col-xs-3 card-text">{{server.ip}}</div>
+        <div class="card-text col-xs-3">{{server.type}}</div>
+        <div class="card-text col-xs-2" [ngSwitch]="server.status">
+          <span *ngSwitchCase="'works'" title="{{server.status}}" class="glyphicon glyphicon-ok-circle ok"></span>
+          <span *ngSwitchCase="'starting'" title="{{server.status}}" class="glyphicon glyphicon-upload start"></span>
+          <span *ngSwitchCase="'stopped'" title="{{server.status}}" class="glyphicon glyphicon-download stop"></span>
+          <span *ngSwitchCase="'overloaded'" title="{{server.status}}" class="glyphicon glyphicon-ban-circle overloaded"></span>
+          <span *ngSwitchCase="'error'" title="{{server.status}}" class="glyphicon glyphicon-exclamation-sign error"></span>
+        </div>
+        <div class="col-xs-4">
+          <button [disabled]="serverActive(server.status)" class="btn btn-success" (click)="startServer(server.id)">Start</button>
+          <button [disabled]="!serverActive(server.status)" class="btn btn-info" (click)="restartServer(server.id)">Restart</button>
+          <button [disabled]="!serverActive(server.status)" class="btn btn-danger" (click)="stopServer(server.id)">Stop</button>
+          <button class="btn btn-default" [routerLink]="['/servers', server.id]">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
